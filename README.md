@@ -226,8 +226,7 @@ Resumindo, calcula-se o índice do filho esquerdo do elemento no índice index. 
 A primeira impressão é diretamente da Heap MAX, já a segunda é a Impressão Ordenada com mais frequências de cada palavra.
 
 <p align="center">
-<img src="./img/results.png
-" width="700"/> 
+<img src="./img/results.png" width="700"/> 
 </p>
 
 # Conclusao
