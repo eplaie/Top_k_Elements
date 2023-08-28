@@ -7,9 +7,9 @@ using namespace std;
 
 struct DataPair {
     string palavra;
-    int freq;
+    int frequencies;
 
-    DataPair(const string &p, int f) : palavra(p), freq(f) {}
+    DataPair(const string &p, int f) : palavra(p), frequencies(f) {}
 };
 
 class HeapMAX {
@@ -21,19 +21,19 @@ public:
     HeapMAX() {}
     int cont;
     void tamanho() { cout << heap.size() << endl; }
-    void inserir(const DataPair &pair);
+    void insertt(const DataPair &pair);
     DataPair getheap(int i) {return heap [i];} 
-    DataPair PesquisaMAX();
+    DataPair PMax();
     bool Vazia();
     int getsize () { return heap.size (); }
 };
 
-void HeapMAX::inserir(const DataPair &pair) {
+void HeapMAX::insertt(const DataPair &pair) {
     heap.push_back(pair);
     int index = heap.size() - 1;
     while (index > 0) {
         int parentIndex = (index - 1) / 2;
-        if (heap[index].freq > heap[parentIndex].freq) {
+        if (heap[index].frequencies > heap[parentIndex].frequencies) {
             swap(heap[index], heap[parentIndex]);
             index = parentIndex;
         } else {
@@ -42,7 +42,7 @@ void HeapMAX::inserir(const DataPair &pair) {
     }
 }
 
-DataPair HeapMAX::PesquisaMAX() {
+DataPair HeapMAX::PMax() {
     DataPair Max = heap.front();
     if (heap.size() > 1) {
         heap[0] = heap.back();
@@ -63,10 +63,10 @@ void HeapMAX::HeapiFy(size_t index) {
     size_t rNumIndex = (index + 1) * 2;
     size_t largestNumIndex = index;
 
-    if (lNumIndex < heap.size() && heap[lNumIndex].freq > heap[largestNumIndex].freq) {
+    if (lNumIndex < heap.size() && heap[lNumIndex].frequencies > heap[largestNumIndex].frequencies) {
         largestNumIndex = lNumIndex;
     }
-    if (rNumIndex < heap.size() && heap[rNumIndex].freq > heap[largestNumIndex].freq) {
+    if (rNumIndex < heap.size() && heap[rNumIndex].frequencies > heap[largestNumIndex].frequencies) {
         largestNumIndex = rNumIndex;
     }
     if (largestNumIndex != index) {

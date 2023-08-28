@@ -51,7 +51,7 @@ int main() {
     HeapMAX HeapMaxima;
 
     for (const auto &item : frequencia) {
-        HeapMaxima.inserir(DataPair(item.first, item.second));
+        HeapMaxima.insertt(DataPair(item.first, item.second));
     }
     HeapMaxima.cont = 0;
     cout << "------------------------------" << endl << endl; 
@@ -59,13 +59,13 @@ int main() {
     for (int i = 0; i < MAX; ++i) {
         auto valor = HeapMaxima. getheap(i);
         int space = (50 - valor.palavra.size() - 1);
-        cout << valor.palavra << setw(space) << left << " " << setw(10) << right << valor.freq << endl;
+        cout << valor.palavra << setw(space) << left << " " << setw(10) << right << valor.frequencies << endl;
     }
     cout << "\nImpressão da Heap Ordenada" << endl << endl; 
     for (size_t i = 0; i < MAX; ++i) { 
-        DataPair pair = HeapMaxima.PesquisaMAX();
+        DataPair pair = HeapMaxima.PMax();
         int space = (50 - pair.palavra.size() - 1);
-        cout << pair.palavra << setw(space) << left << " " << setw(10) << right << pair.freq << endl;
+        cout << pair.palavra << setw(space) << left << " " << setw(10) << right << pair.frequencies << endl;
     }
 
     return 0;

@@ -1,15 +1,15 @@
 #include "hash.hpp"
 
-string TextCollector(const string &caminhoArquivo) {
-    ifstream arquivo(caminhoArquivo);
+string TextCollector(const string &text_position) {
+    ifstream arq(text_position);
     string conteudo;
 
-    if (arquivo.is_open()) {
-        string linha;
-        while (getline(arquivo, linha)) {
-            conteudo += linha + "\n";
+    if (arq.is_open()) {
+        string line;
+        while (getline(arq, line)) {
+            conteudo += line + "\n";
         }
-        arquivo.close();
+        arq.close();
     }
     return conteudo;
 }
@@ -26,27 +26,27 @@ string TextAnalyzer(const string &texto) {
     return New_text;
 }
 
-unordered_set<string> StopWordExtractor(const string &caminhoArquivo) {
+unordered_set<string> StopWordExtractor(const string &text_position) {
     unordered_set<string> stopwords;
-    ifstream arquivo(caminhoArquivo);
+    ifstream arq(text_position);
 
-    if (arquivo.is_open()) {
+    if (arq.is_open()) {
         string palavra;
 
-        while (arquivo >> palavra) {
+        while (arq >> palavra) {
             stopwords.insert(palavra);
         }
-        arquivo.close();
+        arq.close();
     } 
     return stopwords;
 }
 
-string stopWordCleaner(const string &textoTratado, unordered_set<string> &stopwords) {
-    stringstream separador(textoTratado);
+string stopWordCleaner(const string &text_final, unordered_set<string> &stopwords) {
+    stringstream concatenada(text_final);
     string palavra;
     string text_s_StopWord;
 
-    while (separador >> palavra) {
+    while (concatenada >> palavra) {
         if (stopwords.find(palavra) == stopwords.end() && palavra.find_first_of("—-") == string::npos) {
             text_s_StopWord += palavra + " ";
         }
@@ -56,13 +56,13 @@ string stopWordCleaner(const string &textoTratado, unordered_set<string> &stopwo
 }
 
 unordered_map<string, int> occurrenceCounter(const string &texto) {
-    unordered_map<string, int> palavras;
-    istringstream separador(texto);
+    unordered_map<string, int> indice;
+    istringstream concatenada(texto);
     string palavra;
 
-    while (separador >> palavra) {
-        palavras[palavra]++;
+    while (concatenada >> palavra) {
+        indice[palavra]++;
     }
 
-    return palavras;
+    return indice;
 }
