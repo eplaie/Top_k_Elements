@@ -178,9 +178,9 @@ A importância do Heapify em um heap máximo é crucial para manter a propriedad
 
 ```cpp
 void HeapMAX::Heapify(size_t index) {
-   size_t lNumIndex = 2 * index + 1;
-   size_t rNumIndex = 2 * index + 2;
-   size_t largestNumIndex = index;
+    size_t lNumIndex = (index + 1) * 2 -1;
+    size_t rNumIndex = (index + 1) * 2;
+    size_t largestNumIndex = index;
 
    if (lNumIndex < heap.size() && heap[lNumIndex].freq > heap[largestNumIndex].freq) {
        largestNumIndex = lNumIndex;
