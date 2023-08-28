@@ -21,6 +21,5 @@ unordered_set<string> StopWordExtractor(const string& caminhoArquivo);
 string stopWordCleaner(const string& textoTratado, unordered_set<string>& stopwords);
 unordered_map<string, int> occurrenceCounter(const string& texto);
 
-
 #endif 
 

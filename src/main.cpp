@@ -38,10 +38,10 @@ int main() {
     unordered_map<string, int> frequencia;
 
     for (const string &texto : textos) {
-        string texto_tratado = TextAnalyzer(texto);
-        string texto_semSW = stopWordCleaner(texto_tratado, stopwords);
+        string new_text = TextAnalyzer(texto);
+        string text_s_Stop = stopWordCleaner(new_text, stopwords);
 
-        unordered_map<string, int> texto_frequencia = occurrenceCounter(texto_semSW);
+        unordered_map<string, int> texto_frequencia = occurrenceCounter(text_s_Stop);
 
         for (const auto &item : texto_frequencia) {
             frequencia[item.first] += item.second;

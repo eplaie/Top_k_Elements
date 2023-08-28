@@ -15,15 +15,15 @@ string TextCollector(const string &caminhoArquivo) {
 }
 
 string TextAnalyzer(const string &texto) {
-    string Texto_tratado;
+    string New_text;
 
     for (char c : texto) {
-        Texto_tratado += tolower(c);
+        New_text += tolower(c);
     }
 
-    Texto_tratado.erase(remove_if(Texto_tratado.begin(), Texto_tratado.end(), ::ispunct), Texto_tratado.end());
+    New_text.erase(remove_if(New_text.begin(), New_text.end(), ::ispunct), New_text.end());
 
-    return Texto_tratado;
+    return New_text;
 }
 
 unordered_set<string> StopWordExtractor(const string &caminhoArquivo) {
@@ -44,15 +44,15 @@ unordered_set<string> StopWordExtractor(const string &caminhoArquivo) {
 string stopWordCleaner(const string &textoTratado, unordered_set<string> &stopwords) {
     stringstream separador(textoTratado);
     string palavra;
-    string texto_semSW;
+    string text_s_StopWord;
 
     while (separador >> palavra) {
         if (stopwords.find(palavra) == stopwords.end() && palavra.find_first_of("—-") == string::npos) {
-            texto_semSW += palavra + " ";
+            text_s_StopWord += palavra + " ";
         }
     }
 
-    return texto_semSW;
+    return text_s_StopWord;
 }
 
 unordered_map<string, int> occurrenceCounter(const string &texto) {
