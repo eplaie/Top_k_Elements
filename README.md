@@ -41,7 +41,7 @@ e k o número de itens mais relevantes.
 
 A solução proposta é baseada em um programa C++ que tem como objetivo principal analisar um arquivo de texto, considerando vários parâmetros. O arquivo de entrada é um arquivo .txt com uma estrutura específica, onde cada sentença termina com um sinal de pontuação e cada parágrafo é separado por pelo menos uma linha em branco.
 
-A base da hash segue a mesma lógica da adotada no periodo passado que pode ser visualizada no aqui https://github.com/celzin/Corretor-de-Texto
+A base da hash segue a mesma lógica da adotada no periodo passado que pode ser visualizada aqui https://github.com/celzin/Corretor-de-Texto
 
 São definidas as classes e estruturas de dados utilizadas no programa, como a classe `WordInfo` .
 
