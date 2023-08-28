@@ -112,7 +112,7 @@ Um heap é uma estrutura de dados útil quando é necessário remover repetidame
 </p>
 Heaps são uma implementação de Priority Queues.
 
-Uma implementação é fazer uma alocação dinâmica para cada nó, com 2 ponteiros apontando para seus filhos (como uma lista vinculada).
+Uma implementação é fazer uma alocação dinâmica para cada nó, com 2 ponteiros apontando para seus filhos 
 
 Mas há uma implementação mais eficiente: representá-lo na forma de uma matriz, fazendo uma travessia de ordem de nível do heap.
 
