@@ -15,7 +15,7 @@ struct DataPair {
 class HeapMAX {
 private:
     vector<DataPair> heap;
-    void Heapfy(size_t index); 
+    void HeapiFy(size_t index); 
 
 public:
     HeapMAX() {}
@@ -47,7 +47,7 @@ DataPair HeapMAX::PesquisaMAX() {
     if (heap.size() > 1) {
         heap[0] = heap.back();
         heap.pop_back();
-        Heapfy(0);
+        HeapiFy(0);
     } else {
         heap.pop_back();
     }
@@ -58,7 +58,7 @@ bool HeapMAX::Vazia() {
     return heap.empty();
 }
 
-void HeapMAX::Heapfy(size_t index) {
+void HeapMAX::HeapiFy(size_t index) {
     size_t lNumIndex = 2 * index + 1;
     size_t rNumIndex = 2 * index + 2;
     size_t largestNumIndex = index;
@@ -71,10 +71,8 @@ void HeapMAX::Heapfy(size_t index) {
     }
     if (largestNumIndex != index) {
         swap(heap[index], heap[largestNumIndex]);
-        Heapfy(largestNumIndex);
+        HeapiFy(largestNumIndex);
     }
 }
 #endif 
 
-
-//trocar o prop pelo Heapfy
